@@ -23,7 +23,7 @@ for p in "$@"; do
   out=$WORK/out_$p
   start=$(date +%s)
   python3 "$ROOT/src/gate_k15.py" "$eng" "$ROOT/bin/cascade_k15" /bin/true "$p" "$W" "$out" --no-kill \
-    > "$WORK/g_$p.log" 2>&1
+    >> "$WORK/g_$p.log" 2>&1
   rc=$?
   verdict=$(grep -o -E "GATE_CLOSED|NOT_CLOSED|FAIL.*" "$WORK/g_$p.log" | tail -1)
   echo "p=$p rc=$rc wall=$(( $(date +%s) - start ))s verdict=$verdict" | tee -a "$WORK/SWEEP.txt"

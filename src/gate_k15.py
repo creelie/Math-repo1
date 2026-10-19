@@ -138,13 +138,22 @@ log(f"jobs: irredundant {len(ir_jobs)}/{ir_jobs_all} (roots={len(roots)}), " +
     ("km1all 1 (general variant)" if GENERAL else f"km1root {len(km1_jobs)}/{km1_all}"))
 
 # ---------- 2-4. generate + cascade per job ----------
+RESUME_TIMED = []   # cascades finished in an interrupted run and timed from their file times
+
 def cascade(mode, rows, name):
-    outf, statf = f"{OUT}/filt/{name}.out", f"{OUT}/filt/{name}.stats"
+    outf, statf, secf = f"{OUT}/filt/{name}.out", f"{OUT}/filt/{name}.stats", f"{OUT}/filt/{name}.secs"
     if os.path.exists(statf) and "TOTAL rows=" in open(statf).read():
-        return open(statf).read(), 0.0
+        if os.path.exists(secf):
+            return open(statf).read(), float(open(secf).read())
+        # written before .secs files existed: the cascade ran right after its rows were written
+        ins = [f for f in (rows, rows + ".log") if os.path.exists(f)]
+        secs = max(0.0, os.path.getmtime(statf) - max(map(os.path.getmtime, ins))) if ins else 0.0
+        RESUME_TIMED.append(name)
+        return open(statf).read(), round(secs, 1)
     out, err, rc, secs = run([CASCADE, str(P), mode, rows])
     if rc != 0: fail(f"cascade {name} rc={rc} {err[-500:]}")
     open(outf, "w").write(out); open(statf, "w").write(err)
+    open(secf, "w").write(f"{secs:.1f}")
     return err, secs
 
 def ir_job(job):
@@ -221,6 +230,7 @@ timing["ir_gen_cpu_secs"] = sum(x["gen_secs"] for x in ir_res)
 timing["ir_cascade_wall_secs"] = sum(x["casc_wall"] for x in ir_res)
 timing["km1_gen_cpu_secs"] = sum(x["gen_secs"] for x in km1_res)
 timing["km1_cascade_wall_secs"] = sum(x["casc_wall"] for x in ext_res)
+timing["cascades_timed_from_file_times"] = len(RESUME_TIMED)
 base = dict(irredundant_jobs=len(ir_res), irredundant_rows=sum(x["rows"] for x in ir_res),
             irredundant_nodes=sum(x["nodes"] for x in ir_res),
             km1_jobs=len(km1_res), km1_rooted_covers=sum(x["covers"] for x in km1_res),
