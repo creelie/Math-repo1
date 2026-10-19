@@ -1,0 +1,57 @@
+{
+  "gate": {
+    "k": 15,
+    "p": 239
+  },
+  "claim": "Every tuple in I(15,239,1) is eventually (15,239)-proper; hence J(15,239) is empty. Framework: Sungkawichai-Trakulthongchai (Def 2.1/2.3, Lemma 2.4, Prop 5.1); binary cascade to level 32 plus level-16 composite kill of persistent orbits.",
+  "claim_type": "J(K,p) empty (framework only)",
+  "status": "GATE_CLOSED",
+  "precondition": {
+    "smax": 13,
+    "covers_upto_smax": 0,
+    "nodes": 49709682,
+    "secs": 46.7254,
+    "variant": "decomposition"
+  },
+  "base_family": {
+    "irredundant_jobs": 149,
+    "irredundant_rows": 9552452,
+    "irredundant_nodes": 18722505854,
+    "km1_jobs": 14,
+    "km1_rooted_covers": 62846,
+    "km1_covers_dedup": 8272,
+    "reducible_variant": "decomposition",
+    "km1_extension_rows": 984368,
+    "extensions_per_cover": 119,
+    "level2_survivor_rows_ir": 15184,
+    "level2_survivor_rows_ext": 20635
+  },
+  "cascade": {
+    "survivor_rows": 35819,
+    "died_l4": 35817,
+    "died_l8": 1,
+    "died_l16": 1,
+    "level2_improper_lifts_total": 40078
+  },
+  "persistent_orbits": {
+    "count": 0,
+    "representatives": [],
+    "rows_per_orbit": {}
+  },
+  "level_kills": [],
+  "timing": {
+    "precondition_secs": 46.7,
+    "gen_cascade_wall_secs": 142.0,
+    "ir_gen_cpu_secs": 6921.2,
+    "ir_cascade_wall_secs": 1.2,
+    "km1_gen_cpu_secs": 336.7,
+    "km1_cascade_wall_secs": 20.8,
+    "orbit_canon_wall_secs": 0.0,
+    "kill_wall_secs": 0.0
+  },
+  "tools": {
+    "engine": "bgk15",
+    "cascade": "cascade_k15",
+    "kill": "true"
+  }
+}
