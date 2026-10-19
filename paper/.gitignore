@@ -1,0 +1,11 @@
+hexagon/output.*
+journal/output.*
+hexagon/*.aux
+hexagon/*.log
+hexagon/*.out
+hexagon/*.toc
+journal/*.aux
+journal/*.log
+journal/*.out
+journal/*.toc
+__pycache__/
