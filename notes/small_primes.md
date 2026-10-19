@@ -41,7 +41,11 @@ all such multisets, keeps one representative of each orbit under
 multiplication by units modulo p (multiplication by a unit U ≡ 1 modulo the
 binary level maps the lift tree of a row onto that of its image and
 preserves witnesses, parities and 2-adic valuations), and runs the cascade.
-It does not use the cover generator.
+It does not use the cover generator. The representatives are run in
+chunks of at most four rows; a finished chunk is kept, so an interrupted
+gate resumes where it stopped. The gates at 23, 29 and 31 were run before
+the chunking was added (commit 2bdce84, one file per worker); their
+manifests record that version of the script.
 
 | p | classes | free speeds | multisets | orbits | result |
 | --- | --- | --- | --- | --- | --- |

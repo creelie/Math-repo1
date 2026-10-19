@@ -14,6 +14,11 @@ onto that of its image), and runs the exact binary lift cascade on the
 representatives. The gate closes when no row keeps an improper lift at the
 cascade's deepest level.
 
+The representatives are split into chunks of at most CHUNK rows, independent
+of WORKERS. A finished chunk leaves OUTDIR/filt_<i>.json; rerunning with the
+same OUTDIR checks that the chunk files are unchanged and runs only the
+chunks without it, so an interrupted gate resumes where it stopped.
+
 Writes OUTDIR/SUMMARY.json and OUTDIR/MANIFEST_SHA256.json; exit 0 if closed,
 2 otherwise.
 """
@@ -21,6 +26,7 @@ import hashlib, itertools, json, os, re, subprocess, sys, time
 from concurrent.futures import ThreadPoolExecutor
 
 K = 15
+CHUNK = 4
 if len(sys.argv) != 5:
     print(__doc__); sys.exit(1)
 CASCADE, P, WORKERS, OUT = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
@@ -58,26 +64,45 @@ for extra in itertools.combinations_with_replacement(range(1, NC + 1), FREE):
     orbits[key] = orbits.get(key, 0) + 1
 reps = sorted(orbits)
 
-chunks = [reps[i::WORKERS] for i in range(WORKERS) if reps[i::WORKERS]]
+NCH = -(-len(reps) // CHUNK)
 files = []
-for i, part in enumerate(chunks):
+for i in range(NCH):
     fn = f"{OUT}/rows_{i}.txt"
-    open(fn, "w").write("".join("".join(f"{c:02x}" for c in r) + "\n" for r in part))
+    text = "".join("".join(f"{c:02x}" for c in r) + "\n" for r in reps[i::NCH])
+    if os.path.exists(fn):
+        if open(fn).read() != text: sys.exit(f"{fn} differs from the rows of this gate; use a fresh OUTDIR")
+    else:
+        open(fn + ".tmp", "w").write(text); os.replace(fn + ".tmp", fn)
     files.append(fn)
 
-def run(fn):
-    t0 = time.time()
-    r = subprocess.run([CASCADE, str(P), "filter", fn], capture_output=True, text=True)
-    out, err = fn.replace("rows_", "filt_").replace(".txt", ".out"), fn.replace("rows_", "filt_").replace(".txt", ".stats")
-    open(out, "w").write(r.stdout); open(err, "w").write(r.stderr)
-    if r.returncode != 0: sys.exit(f"cascade failed on {fn}: {r.stderr[-300:]}")
-    m = re.search(r"TOTAL rows=(\d+) survivors=(\d+) shiftkilled=(\d+) maxlevel=(\d+)", r.stderr)
+def parse(fn, out, err, secs):
+    m = re.search(r"TOTAL rows=(\d+) survivors=(\d+) shiftkilled=(\d+) maxlevel=(\d+)", open(err).read())
     if not m: sys.exit(f"cascade stats without maxlevel on {fn}")
     return dict(file=os.path.basename(fn), rows=int(m[1]), survivors=int(m[2]), shift=int(m[3]),
-                level=int(m[4]), secs=round(time.time() - t0, 1), out=out, stats=err)
+                level=int(m[4]), secs=secs, out=out, stats=err)
+
+def names(fn):
+    base = fn.replace("rows_", "filt_")[:-len(".txt")]
+    return base + ".out", base + ".stats", base + ".json"
+
+def run(fn):
+    out, err, done = names(fn)
+    if os.path.exists(done):
+        return parse(fn, out, err, json.load(open(done))["secs"]) | {"resumed": True}
+    t0 = time.time()
+    r = subprocess.run([CASCADE, str(P), "filter", fn], capture_output=True, text=True)
+    if r.returncode != 0: sys.exit(f"cascade failed on {fn}: {r.stderr[-300:]}")
+    for path, text in ((out, r.stdout), (err, r.stderr)):
+        open(path + ".tmp", "w").write(text); os.replace(path + ".tmp", path)
+    secs = round(time.time() - t0, 1)
+    x = parse(fn, out, err, secs)
+    open(done + ".tmp", "w").write(json.dumps(dict(secs=secs))); os.replace(done + ".tmp", done)
+    print(f"chunk {os.path.basename(fn)} rows={x['rows']} survivors={x['survivors']} secs={secs}", flush=True)
+    return x | {"resumed": False}
 
 with ThreadPoolExecutor(max_workers=WORKERS) as ex:
     res = list(ex.map(run, files))
+resumed = sum(x.pop("resumed") for x in res)
 if sum(x["rows"] for x in res) != len(reps): sys.exit("cascade row count mismatch")
 levels = {x["level"] for x in res}
 if len(levels) != 1: sys.exit("mixed lift levels")
@@ -109,7 +134,8 @@ summary = dict(
                  persistent_rows=len(persistent), **tally),
     persistent=persistent[:50],
     jobs=[{k: v for k, v in x.items() if k not in ("out", "stats")} for x in res],
-    wall_secs=round(time.time() - t_start, 1),
+    chunks=dict(count=NCH, rows_per_chunk_at_most=CHUNK, reused_from_earlier_runs=resumed),
+    wall_secs_last_run=round(time.time() - t_start, 1),
     tools=dict(cascade=os.path.basename(CASCADE), script=os.path.basename(__file__)),
 )
 json.dump(summary, open(f"{OUT}/SUMMARY.json", "w"), indent=2)
@@ -124,5 +150,5 @@ manifest[os.path.basename(CASCADE)] = sha256(CASCADE)
 manifest[os.path.basename(__file__)] = sha256(__file__)
 json.dump(manifest, open(f"{OUT}/MANIFEST_SHA256.json", "w"), indent=2)
 print(f"{summary['status']} p={P} level={LEVEL} orbits={len(reps)} multisets={n_rows} persistent={len(persistent)} "
-      f"wall={summary['wall_secs']}s")
+      f"chunks={NCH} reused={resumed} wall={summary['wall_secs_last_run']}s")
 sys.exit(0 if closed else 2)
