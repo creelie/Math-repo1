@@ -10,12 +10,13 @@ times are those of the binary lift cascade.
 | 31 | decomposition | 0 | under 1 s | under 1 s | 35 s | 35 s |
 | 239 | decomposition | 0 | 6,921 s | 337 s | 22 s | about 2.0 CPU-hours |
 | 179 | general | 83,239 | 4,448 s | 765 s (2,676,385 covers) | 5,441 s irredundant, 24,952 s reducible (summed job time on a shared machine) | about 10 hours of summed job time |
+| 269 | decomposition | 0 | 17,222 s | 877 s | 166 s | about 5.1 hours of summed job time (two workers on a shared machine) |
 
-The classification run (`km1low 13`, at most 150 s per prime) found no
-cover on at most 13 classes for p = 269, 271 and 283, so these use the
-cheap decomposition variant; p = 251 has 26 such covers and p = 263 has 39.
-The primes 257, 277, 281, 293, 307 and 311 did not finish the
-classification in 150 s.
+The classification run (`km1low 13`) counts the covers on at most 13
+classes. It found none for p = 269, 271, 281, 283, 293, 307, 311, 313, 317
+and 331, so these use the cheap decomposition variant (163 to 526 s per
+prime above 271). There are 26 such covers at p = 251, 39 at 263, 65 at 277,
+715 at 257 and 936 at 241.
 
 The generation time grows with p roughly like the number of irredundant
 covers; at K = 15 the decomposition primes cost about five times as much as
