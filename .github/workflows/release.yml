@@ -1,0 +1,25 @@
+name: release
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, e.g. v1.0.0"
+        required: true
+      title:
+        description: "Release title"
+        required: true
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+          TITLE: ${{ inputs.title }}
+        run: |
+          gh release create "$TAG" --target "$GITHUB_SHA" --title "$TITLE" \
+            --notes "Paper: paper/ (Hexagon and journal versions), Prime Divisibility for Sixteen Lonely Runners. Prime gates for fifteen speeds: src/, scripts/, results/ (summaries and SHA-256 manifests), check/ (independent lifting program, exact checks of the shape bound and the constants). Sixteen lonely runners is not proved; the closed primes are listed in README.md. Authors: Deep Bhattacharjee (ORCID 0000-0003-0466-750X; itsdeep@live.com, d.bhattacharjee@erl-forschung.de), Ushashi Bhattacharya (ORCID 0009-0002-2254-3914)."
