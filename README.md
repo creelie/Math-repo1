@@ -26,6 +26,7 @@ these primes.
 | --- | --- | --- | --- | --- | --- |
 | 29 | small-prime | 128 | 1 orbit (14 covers) | 0 | `results/summary_29.json` |
 | 31 | small-prime | 128 | 1 orbit (1 cover) | 0 | `results/summary_31.json` |
+| 179 | general | 32 | 103,956,757 rows | 403,094,340 | `results/summary_179.json` |
 | 239 | decomposition | 32 | 10,536,820 rows | not used | `results/summary_239.json` |
 
 This does not prove LRC(15). Allikvere's flag bound, at n = 15, gives
@@ -94,6 +95,14 @@ shift lemma, the symmetry reduction and the deeper lifts were added. Every
 row died before level 32 and no lift needed the shift lemma, so its claim
 (J(15, 239) is empty) does not depend on the later changes. Its claim text
 also names a level-16 kill step; no orbit persisted, so that step never ran.
+
+The gate for p = 179 ran with the level-32 build of the cascade with the
+shift lemma, before the deeper lifts were added. Every row died by level 16
+(101,275,180 at level 4, 2,679,532 at level 8, 2,045 at level 16), so its
+claim does not depend on them. Its claim text writes LRC(16) for sixteen
+runners; `claim_note` in the summary says so. At p = 179 there are covers
+on 13 classes, so the reducible branch is the general one: 2,676,385
+fourteen-class covers, each extended by all 89 classes.
 
 ## Computation
 

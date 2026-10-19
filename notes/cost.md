@@ -9,7 +9,7 @@ times are those of the binary lift cascade.
 | --- | --- | --- | --- | --- | --- | --- |
 | 31 | decomposition | 0 | under 1 s | under 1 s | 35 s | 35 s |
 | 239 | decomposition | 0 | 6,921 s | 337 s | 22 s | about 2.0 CPU-hours |
-| 179 | general | 83,239 | 4,464 s | 765 s (2,676,385 covers) | about 20 CPU-minutes per extension shard, 8 shards | about 4.5 CPU-hours |
+| 179 | general | 83,239 | 4,448 s | 765 s (2,676,385 covers) | 5,441 s irredundant, 24,952 s reducible (summed job time on a shared machine) | about 10 hours of summed job time |
 
 The classification run (`km1low 13`, at most 150 s per prime) found no
 cover on at most 13 classes for p = 269, 271 and 283, so these use the
