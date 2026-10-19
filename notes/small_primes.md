@@ -46,8 +46,8 @@ It does not use the cover generator.
 | p | classes | free speeds | multisets | orbits | result |
 | --- | --- | --- | --- | --- | --- |
 | 31 | 15 | 0 | 1 | 1 | closed, every lift dies by level 16 |
-| 29 | 14 | 1 | 14 | 1 | closed |
-| 23 | 11 | 4 | 1,001 | 91 | RESULT_23 |
+| 29 | 14 | 1 | 14 | 1 | closed, every lift dies by level 32 |
+| 23 | 11 | 4 | 1,001 | 91 | closed; 57 orbits die at level 64 and 34 at level 128, none earlier; 8,636,800 lifts by the shift lemma |
 | 19 | 9 | 6 | 3,003 | 335 | RESULT_19 |
 | 17 | 8 | 7 | 3,432 | 429 | RESULT_17 |
 

@@ -24,6 +24,7 @@ these primes.
 
 | p | gate | lift level | rows through the cascade | lifts settled by the shift lemma | summary |
 | --- | --- | --- | --- | --- | --- |
+| 23 | small-prime | 128 | 91 orbits (1,001 covers) | 8,636,800 | `results/summary_23.json` |
 | 29 | small-prime | 128 | 1 orbit (14 covers) | 0 | `results/summary_29.json` |
 | 31 | small-prime | 128 | 1 orbit (1 cover) | 0 | `results/summary_31.json` |
 | 179 | general | 32 | 103,956,757 rows | 403,094,340 | `results/summary_179.json` |
