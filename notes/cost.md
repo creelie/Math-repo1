@@ -21,6 +21,9 @@ The generation time grows with p roughly like the number of irredundant
 covers; at K = 15 the decomposition primes cost about five times as much as
 at K = 14.
 
-Small primes are cheap: the whole tree of a p = 23 row, to level 128, takes
+Small primes vary. The whole tree of a p = 23 row, to level 128, takes
 about ten seconds in the cascade and about a hundred seconds in the
-independent brute-force check `check/lift_check_sym.cpp`.
+independent brute-force check `check/lift_check_sym.cpp`, and the 91
+orbits of p = 23 took 56 minutes on three cores. At p = 19 a single row
+can take hours (see `small_primes.md`), so 19 and 17 cost far more per unit
+of log-sum than the large primes of the decomposition variant.

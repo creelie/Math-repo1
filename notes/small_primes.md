@@ -52,8 +52,22 @@ manifests record that version of the script.
 | 31 | 15 | 0 | 1 | 1 | closed, every lift dies by level 16 |
 | 29 | 14 | 1 | 14 | 1 | closed, every lift dies by level 32 |
 | 23 | 11 | 4 | 1,001 | 91 | closed; 57 orbits die at level 64 and 34 at level 128, none earlier; 8,636,800 lifts by the shift lemma |
-| 19 | 9 | 6 | 3,003 | 335 | RESULT_19 |
-| 17 | 8 | 7 | 3,432 | 429 | RESULT_17 |
+| 19 | 9 | 6 | 3,003 | 335 | not run to the end: too costly here (see below) |
+| 17 | 8 | 7 | 3,432 | 429 | not run: more free speeds than 19 |
+
+At p = 19 single rows are far heavier than at 23. Measured on one core with
+the cascade capped at lower levels: the row 1⁷,2,…,9 reaches level 16 in
+2.8 s, level 32 in 16 s and level 128 in 284 s; the row 1⁴,2,3³,4,5,6²,7,8,9
+needs 89 s for level 16 alone and more than 300 s for level 32; the row
+1³,2³,3,4³,5,6,7,8,9 needs 34 s for level 16. Two chunks of four such rows
+ran 70 CPU-minutes each without finishing. With the cost growing about
+fourfold per doubling of the level, one row can take hours, and the 335
+orbits of p = 19 would cost of the order of a hundred CPU-hours for
+log 19 = 2.94 — far more per unit of log-sum than a large prime of the
+decomposition variant (about two to four CPU-hours for log p ≈ 5.6). The
+gates at 19 and 17 are therefore left for later; a run there needs the
+lift tree of a row split into subtrees, since one row can outlast a
+two-hour job.
 
 ## Primes from 37 on
 
