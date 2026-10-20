@@ -1,0 +1,68 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarksnumbered=true]{hyperref}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage[margin=1.15in]{geometry}
+
+\tolerance=2000
+\emergencystretch=2em
+\hbadness=2000
+\hfuzz=1pt
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\LRC}{\mathrm{LRC}}
+\newcommand{\figw}{0.8\textwidth}
+\newenvironment{wtable}{\begin{table}[t]}{\end{table}}
+\def\zenodoID{}% version DOI of the Zenodo archive; empty until it is minted
+\newcommand{\archivelink}{\ifx\zenodoID\empty\url{https://github.com/creelie/Math-repo1}%
+ \else\href{https://doi.org/\zenodoID}{doi:\zenodoID}\fi}
+
+\hyphenation{Sung-ka-wi-chai Tra-kul-thong-chai Al-li-kve-re}
+
+\begin{document}
+
+\title{Prime divisibility for sixteen lonely runners}
+
+\author{Deep Bhattacharjee}
+\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL),
+Bhubaneswar, Odisha 751030, India; and formerly, University of Calcutta,
+Senate House, 87/1 College Street, Kolkata 700073, West Bengal, India}
+\email{itsdeep@live.com, d.bhattacharjee@erl-forschung.de}
+\thanks{ORCID: Deep Bhattacharjee 0000-0003-0466-750X (corresponding
+author); Ushashi Bhattacharya 0009-0002-2254-3914.}
+
+\author{Ushashi Bhattacharya}
+\address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
+\email{rai.bhattacharya.in@gmail.com}
+
+\subjclass[2020]{Primary 11J71; Secondary 11H06, 52C07, 68V05}
+\keywords{lonely runner conjecture, view obstruction, lattice flag bound,
+computer-assisted proof}
+\date{\PAPERDATE}
+
+\begin{abstract}
+\itshape
+\ABSTRACTTEXT
+\end{abstract}
+
+\maketitle
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+

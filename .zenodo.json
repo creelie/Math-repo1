@@ -1,0 +1,32 @@
+{
+  "title": "Prime Divisibility for Sixteen Lonely Runners",
+  "upload_type": "software",
+  "description": "Paper (REVTeX and amsart sources) and the computation behind it. For sixteen runners, the first open case of the lonely runner conjecture (fifteen speeds), the modular method of Sungkawichai, Trakulthongchai and Allikvere is carried to fifteen speeds. We prove the shape estimate R_15 < 1/2 that completes Allikvere's flag bound at n = 15, so the product of the speeds of a primitive counterexample is below exp(497.03) and divisible by 720720, and we prove by prime gates that it is divisible by each prime listed in README.md. The new tools are a shift lemma for powers of two and binary lifting to level 128; every class met is settled by that level, and the lifting is checked by an independent program. The conjecture for sixteen runners is not proved: the closed primes fall far short of the log-sum 483.54 that the bound requires. The cover generator and lift cascade are adapted from Allikvere's code (doi:10.5281/zenodo.22667683, CC BY 4.0, changes in NOTICE.md). The search followed the learn-from-failure protocol of the BLLM engine Anaxia (creelie/eBLLM, release 3.1.0, doi:10.5281/zenodo.23484160).",
+  "creators": [
+    {
+      "name": "Bhattacharjee, Deep",
+      "orcid": "0000-0003-0466-750X",
+      "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, India; Formerly, University of Calcutta, Kolkata, India"
+    },
+    {
+      "name": "Bhattacharya, Ushashi",
+      "orcid": "0009-0002-2254-3914",
+      "affiliation": "Formerly, National Taiwan University, Taipei, Taiwan"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "lonely runner conjecture",
+    "view obstruction",
+    "lattice flag bound",
+    "computer-assisted proof"
+  ],
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.22667683", "relation": "isDerivedFrom", "scheme": "doi"},
+    {"identifier": "arXiv:2609.02604", "relation": "references", "scheme": "arxiv"},
+    {"identifier": "arXiv:2604.23906", "relation": "references", "scheme": "arxiv"},
+    {"identifier": "10.5281/zenodo.23484160", "relation": "references", "scheme": "doi"}
+  ],
+  "access_right": "open",
+  "version": "1.0.0"
+}

@@ -1,0 +1,86 @@
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib,longbibliography,floatfix,showkeys,amsmath,amssymb,10pt]{revtex4-2}
+
+\usepackage{mathptmx}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarksnumbered=true]{hyperref}
+\usepackage{orcidlink}
+\usepackage{microtype}
+\usepackage{xurl}
+
+\makeatletter
+\AtBeginDocument{\def\NAT@bibsetup{\setlength{\labelwidth}{\z@}%
+ \setlength{\labelsep}{0.5em}\setlength{\itemindent}{\z@}%
+ \setlength{\listparindent}{\z@}\setlength{\topsep}{\z@}%
+ \setlength{\parsep}{\z@}\NATx@bibsetup}}
+\let\write@bibliographystyle\relax
+\let\bibliography@latex\@gobble
+\makeatother
+
+\tolerance=2000
+\emergencystretch=2em
+\hbadness=2000
+\hfuzz=1pt
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\LRC}{\mathrm{LRC}}
+\newcommand{\figw}{\columnwidth}
+\newenvironment{wtable}{\begin{table*}[t]}{\end{table*}}
+\def\zenodoID{}% version DOI of the Zenodo archive; empty until it is minted
+\newcommand{\archivelink}{\ifx\zenodoID\empty\url{https://github.com/creelie/Math-repo1}%
+ \else\href{https://doi.org/\zenodoID}{doi:\zenodoID}\fi}
+
+\setlength{\emergencystretch}{3em}
+\hyphenation{Sung-ka-wi-chai Tra-kul-thong-chai Al-li-kve-re}
+
+\begin{document}
+
+\title{Prime Divisibility for Sixteen Lonely Runners}
+
+\author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
+\email{itsdeep@live.com}
+\thanks{$*$\,Corresponding author. Second address:
+\nolinkurl{d.bhattacharjee@erl-forschung.de}.}
+\affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
+(EGSPL), Bhubaneswar, Odisha 751030, India}
+\affiliation{Formerly, University of Calcutta, Senate House, 87/1 College
+Street, Kolkata 700073, West Bengal, India}
+
+\author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
+\email{rai.bhattacharya.in@gmail.com}
+\affiliation{Formerly, National Taiwan University, Taipei 106319, Taiwan}
+
+\date{\PAPERDATE}
+
+\begin{abstract}
+\itshape
+\ABSTRACTTEXT
+\par\medskip\upshape\noindent
+\textit{2020 Mathematics Subject Classification.} Primary 11J71;
+Secondary 11H06, 52C07, 68V05.
+\end{abstract}
+
+\keywords{lonely runner conjecture; view obstruction; lattice flag bound;
+computer-assisted proof}
+
+\maketitle
+
+\makeatletter
+\renewcommand\l@subsection[2]{}
+\renewcommand\l@subsubsection[2]{}
+\makeatother
+\tableofcontents
+

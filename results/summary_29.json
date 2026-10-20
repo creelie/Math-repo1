@@ -1,0 +1,39 @@
+{
+  "gate": {
+    "k": 15,
+    "p": 29,
+    "lift_level": 128,
+    "method": "small prime: every class is needed, unit-orbit representatives"
+  },
+  "claim": "Assuming LRC(m) for all m < 15 (arXiv:2609.02604v2), every primitive counterexample v to LRC(15) (15 speeds, 16 runners) with pairwise distinct coordinates has 29 | v_1...v_15. Every level-one cover modulo 29 contains all 14 classes; each of its lifts at level 128 is (15,29,128)-proper (witness on the 1/(128*29) grid or the gcd clause) or satisfies the power-of-two shift lemma (some d = 2^j, 2 <= j <= 7); 0 lifts of the orbit representatives use the lemma, so this is the divisibility of Lemma 2.2(ii) of arXiv:2609.02604v2.",
+  "status": "GATE_CLOSED",
+  "covers": {
+    "classes": 14,
+    "free_speeds": 1,
+    "multisets": 14,
+    "orbit_representatives": 1
+  },
+  "cascade": {
+    "rows": 1,
+    "survivor_rows": 1,
+    "lifts_settled_by_shift_lemma": 0,
+    "persistent_rows": 0,
+    "died_l32": 1
+  },
+  "persistent": [],
+  "jobs": [
+    {
+      "file": "rows_0.txt",
+      "rows": 1,
+      "survivors": 1,
+      "shift": 0,
+      "level": 128,
+      "secs": 83.4
+    }
+  ],
+  "wall_secs": 83.4,
+  "tools": {
+    "cascade": "cascade_k15",
+    "script": "small_gate.py"
+  }
+}

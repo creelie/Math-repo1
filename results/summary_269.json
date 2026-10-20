@@ -1,0 +1,59 @@
+{
+  "gate": {
+    "k": 15,
+    "p": 269,
+    "lift_level": 128
+  },
+  "claim": "Assuming LRC(m) for all m < 15 (arXiv:2609.02604v2), every primitive counterexample v to LRC(15) (15 speeds, 16 runners) with pairwise distinct coordinates has 269 | v_1...v_15. Every tuple in I(15,269,1) is eventually (15,269)-proper; hence J(15,269) is empty (Sungkawichai-Trakulthongchai, Def 2.1/2.3, Lemma 2.4, Prop 5.1), shown by the binary cascade to level 128 (K+1 = 16 is itself a binary level), and Lemma 2.2(i) of arXiv:2609.02604v2 gives the divisibility.",
+  "claim_type": "J(K,p) empty (framework only)",
+  "status": "GATE_CLOSED",
+  "precondition": {
+    "smax": 13,
+    "covers_upto_smax": 0,
+    "nodes": 123117591,
+    "secs": 86.6715,
+    "variant": "decomposition"
+  },
+  "base_family": {
+    "irredundant_jobs": 191,
+    "irredundant_rows": 6149965,
+    "irredundant_nodes": 58448792076,
+    "km1_jobs": 16,
+    "km1_rooted_covers": 27258,
+    "km1_covers_dedup": 3334,
+    "reducible_variant": "decomposition",
+    "km1_extension_rows": 446756,
+    "extensions_per_cover": 134,
+    "level2_survivor_rows_ir": 5269,
+    "level2_survivor_rows_ext": 9423,
+    "lifts_settled_by_shift_lemma": 0
+  },
+  "cascade": {
+    "survivor_rows": 14692,
+    "died_l4": 14690,
+    "died_l16": 1,
+    "died_l8": 1,
+    "level2_improper_lifts_total": 16376
+  },
+  "persistent_orbits": {
+    "count": 0,
+    "representatives": [],
+    "rows_per_orbit": {}
+  },
+  "level_kills": [],
+  "timing": {
+    "precondition_secs": 86.7,
+    "gen_cascade_wall_secs": 2057.7,
+    "ir_gen_cpu_secs": 17222.3,
+    "ir_cascade_wall_secs": 154.6,
+    "km1_gen_cpu_secs": 876.6,
+    "km1_cascade_wall_secs": 11.3,
+    "cascades_timed_from_file_times": 137,
+    "orbit_canon_wall_secs": 0.0
+  },
+  "tools": {
+    "engine": "bgk15_nw3",
+    "cascade": "cascade_k15",
+    "kill": "true"
+  }
+}

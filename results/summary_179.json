@@ -1,0 +1,58 @@
+{
+ "gate": {
+  "k": 15,
+  "p": 179
+ },
+ "claim": "Every counterexample to LRC(16) (with 15 speeds, pairwise distinct) has a speed divisible by 179. Every tuple in I(15,179,1) has, at level 32, only lifts that are (15,179,32)-proper (witness on the 1/(32*179) grid or the gcd clause) or satisfy the power-of-two shift lemma (some d = 2^j, 2 <= j <= 5, with sum over coordinates not divisible by d of g*ceil(2(d/g)/16) < d, g = gcd(d, coordinate); uses LRC for at most 14 speeds). 403094340 lifts use the lemma, so this is the divisibility of Lemma 2.2(ii) of arXiv:2609.02604, not a J(15,179) = {} certificate.",
+ "claim_type": "divisibility (framework + power-of-two shift lemma)",
+ "status": "GATE_CLOSED",
+ "precondition": {
+  "smax": 13,
+  "covers_upto_smax": 83239,
+  "nodes": 48255466,
+  "secs": 35.0227,
+  "variant": "general (km1all)"
+ },
+ "base_family": {
+  "irredundant_jobs": 97,
+  "irredundant_rows": 200068231,
+  "irredundant_nodes": 5433440251,
+  "km1_jobs": 1,
+  "km1_rooted_covers": 2676385,
+  "km1_covers_dedup": 2676385,
+  "reducible_variant": "general (km1all)",
+  "km1_extension_rows": 238198265,
+  "extensions_per_cover": 89,
+  "level2_survivor_rows_ir": 10849912,
+  "level2_survivor_rows_ext": 93106845,
+  "lifts_settled_by_shift_lemma": 403094340
+ },
+ "cascade": {
+  "survivor_rows": 103956757,
+  "died_l8": 2679532,
+  "died_l4": 101275180,
+  "died_l16": 2045,
+  "level2_improper_lifts_total": 192811022
+ },
+ "persistent_orbits": {
+  "count": 0,
+  "representatives": [],
+  "rows_per_orbit": {}
+ },
+ "level_kills": [],
+ "timing": {
+  "precondition_secs": 35.0,
+  "gen_cascade_wall_secs": 7741.0,
+  "ir_gen_cpu_secs": 4448.4,
+  "ir_cascade_wall_secs": 5441.1,
+  "km1_gen_cpu_secs": 765.2,
+  "km1_cascade_wall_secs": 24951.7,
+  "orbit_canon_wall_secs": 0.0
+ },
+ "tools": {
+  "engine": "bgk15_nw2",
+  "cascade": "cascade_k15",
+  "kill": "true"
+ },
+ "claim_note": "LRC(16) in the claim above counts runners: 16 runners, 15 speeds. The README and the paper call this LRC(15). The gate ran with the level-32 build of the cascade with the shift lemma; every row died by level 16 (cascade tally), so the claim does not depend on the deeper lifts added later. The irredundant row files were hashed and deleted during the run to save disk; their hashes are merged into manifest_179.json."
+}

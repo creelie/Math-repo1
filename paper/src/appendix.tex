@@ -1,0 +1,113 @@
+\appendix
+
+\section{The constants and the numerical steps of the shape bound}\label{app:shape}
+
+\subsection{The constants of the flag bound}
+
+For $n=15$ we have $B_r=\bigl(r/(8(16-r))\bigr)^2$. Table~\ref{tab:cr} lists
+$c_r=B_r-B_{r-1}$ and the ratios $c_{r+1}/c_r$. All entries are exact. The
+product of the fourteen values $c_r$ is the constant $K_{15}$ of
+Section~\ref{sec:shape}, and
+\begin{align*}
+ 15\log\frac{A_{15}}{30}&=-\frac{15}2\log K_{15}-15\log30\\
+ &=497.0298125704945\ldots ,
+\end{align*}
+computed with fifty significant digits. Since
+\[
+ \log720720=13.4880059913253\ldots ,
+\]
+the logarithms of the primes $p\ge17$ must add up to more than
+\[
+ 483.5418065791692\ldots .
+\]
+
+\begin{table}[t]
+\caption{The increments $c_r=B_r-B_{r-1}$ of the prefix bounds for fifteen
+speeds and their ratios. The least ratio is at $r=6$.}
+\label{tab:cr}
+\centering
+\small
+\begin{tabular}{@{}rlll@{}}
+\toprule
+$r$ & $c_r$ & $c_{r+1}/c_r$ & \\
+\midrule
+\CRROWS
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The inequalities in the proof of Lemma~\ref{lem:shape}}
+
+Every inequality below compares two rational numbers, after raising both
+sides to a power that clears the fractional exponents; the decimal values
+are given to show the margins.
+
+\emph{The root $\alpha$.} The polynomial $g(u)=14u^2-13u+1$ takes the
+values
+\begin{gather*}
+ g(0.0846)=0.00040024>0,\\
+ g(0.0847)=-0.00066274<0,
+\end{gather*}
+so the smaller root $\alpha$ of $g$ lies in $(0.0846,0.0847)$.
+
+\emph{The sign of $P$.} For $0<u<\alpha<0.0847$ the terms $7u^5+14u^4$ are
+positive and $-4u-11u^2-27u^3$ is decreasing, so
+\begin{align*}
+ P(u)&>1-4(0.0847)-11(0.0847)^2-27(0.0847)^3\\
+ &=0.565878\ldots>0 .
+\end{align*}
+
+\emph{The lower bound for $a(\alpha)$.} Since $q$ increases on $(0,1)$ and
+$u^{-2/15}$ decreases, $a(\alpha)>q(0.0846)/0.0847^{2/15}$. Raising to the
+fifteenth power, the claim $q(0.0846)/0.0847^{2/15}>\frac85$ becomes
+\begin{align*}
+ q(0.0846)^{15}&=9.51331\ldots\\
+ &>\Bigl(\frac85\Bigr)^{15}(0.0847)^2=8.27116\ldots .
+\end{align*}
+
+\emph{Two or more coordinates equal to one.} The ratio of consecutive
+values of $f(k)=\frac k2\,2^k\bigl(\frac85\bigr)^{15-k}$ is
+$f(k+1)/f(k)=\frac{k+1}k\cdot\frac54>1$, so $f$ increases, and
+$f(2)=4\bigl(\frac85\bigr)^{13}=1801.43\ldots$.
+
+\emph{The root $t_0$.} The cubic $378t^3+25t^2+10t-1$ takes the values
+$-0.0015037\ldots$ at $t=0.0724$ and $0.00045378\ldots$ at $t=0.0725$.
+
+\emph{The value $H(t_0)$.} The factors $1+2t+27t^2$ and $q(t)$ increase
+and $t^{-28/15}$ decreases, so on $[0.0724,0.0725]$
+\[
+ H(t)\ \ge\ \frac{(1+2\cdot0.0724+27\cdot0.0724^2)\,q(0.0724)^{13}}
+ {0.0725^{28/15}} .
+\]
+Raising to the fifteenth power, the right side exceeds $942.5$ because
+\begin{align*}
+ (1+2\cdot0.0724&+27\cdot0.0724^2)^{15}\,q(0.0724)^{195}\\
+ &=5.05703\ldots\cdot10^{12},\\
+ 942.5^{15}\cdot0.0725^{28}&=5.05457\ldots\cdot10^{12}.
+\end{align*}
+The bound itself is $942.53\ldots$, against the true minimum
+$H(t_0)=944.96\ldots$ at $t_0=0.0724768\ldots$.
+
+\emph{The extremal shape.} The minimum of $H$ is attained at the point
+$u=(1,t_0,\dots,t_0)$, where
+\[
+ R_{15}=\bigl(225/H(t_0)\bigr)^{1/2}=0.48796\ldots .
+\]
+Using $\frac12$ in place of this value in Theorem~\ref{thm:flag} weakens
+the logarithmic bound by $15\log(0.5/0.48796)=0.366$.
+
+\subsection{The algebraic identities}
+
+The identities used in the proof are checked by expanding both sides as
+rational functions: the formula~\eqref{eq:phiprime} for $\varphi'$, the
+identity $14q(u)+g(u)=15(1+u)$, the formula for $L'$, the logarithmic
+derivative of $a$, the closed form of $H(t)$ on the line
+$u=(1,t,\dots,t)$ and its logarithmic derivative. For the last one,
+\[
+ \frac{d}{dt}\log H(t)=\frac{2+54t}{1+2t+27t^2}+\frac{13(2-2t)}{q(t)}
+ -\frac{28}{15t},
+\]
+and putting the three terms over the common denominator
+$15t\,q(t)(1+2t+27t^2)$ gives the numerator
+$-28(t-1)(378t^3+25t^2+10t-1)$; since $q(t)=-(t^2-2t-1)$, this is the
+expression in the proof.

@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Prime Divisibility for Sixteen Lonely Runners"
+type: software
+authors:
+  - family-names: Bhattacharjee
+    given-names: Deep
+    orcid: "https://orcid.org/0000-0003-0466-750X"
+    email: itsdeep@live.com
+    affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta, Senate House, 87/1 College Street, Kolkata 700073, West Bengal, India"
+  - family-names: Bhattacharya
+    given-names: Ushashi
+    orcid: "https://orcid.org/0009-0002-2254-3914"
+    email: rai.bhattacharya.in@gmail.com
+    affiliation: "Formerly, National Taiwan University, Taipei 106319, Taiwan"
+repository-code: "https://github.com/creelie/Math-repo1"
+license: MIT
+version: "1.0.0"
+date-released: "2026-10-19"
+keywords:
+  - lonely runner conjecture
+  - view obstruction
+  - lattice flag bound
+  - computer-assisted proof
+references:
+  - type: article
+    title: "Fourteen and fifteen lonely runners"
+    authors:
+      - family-names: Allikvere
+        given-names: Jaan
+    identifiers:
+      - type: other
+        value: "arXiv:2609.02604v2"
+  - type: software
+    title: "Fifteen lonely runners: manuscript, gate certificates, and audit code"
+    authors:
+      - family-names: Allikvere
+        given-names: Jaan
+    doi: "10.5281/zenodo.22667683"
+  - type: software
+    title: "Anaxia, the BLLM engine (eBLLM release 3.1.0)"
+    authors:
+      - family-names: Bhattacharjee
+        given-names: Deep
+    doi: "10.5281/zenodo.23484160"
