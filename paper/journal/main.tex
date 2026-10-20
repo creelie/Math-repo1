@@ -746,14 +746,19 @@ Theorem~\ref{thm:primes} are marked.}
 
 The computations followed the learn-from-failure protocol of Anaxia, the
 BLLM engine~\cite{Ana26,BB26c}.\footnote{The protocol records each attempt
-that fails together with the rule it teaches, and later attempts are
-checked against the rules. Anaxia produced none of the constructions,
-lemmas or computations of this paper. One rule entered its log from this
-work: survivors of a search that stops at a fixed depth are not obstructions
-when the property being tested is monotone in the depth, and the search must
-be run deeper, with the depth stated in every result. The classes of
-Table~\ref{tab:depth} were first taken for obstructions at level $32$; this
-is the failure that the rule records.}
+that fails with its diagnosis, the rule it changed and the outcome of the
+retry, and later attempts are checked against the rules; release~3.1.0 holds
+the records of this work. Anaxia produced none of the constructions,
+lemmas or computations of this paper. Two rules entered its log from this
+work. Survivors of a search that stops at a fixed depth are not obstructions
+when the property being tested is monotone in the depth, so the search must
+be run deeper, with the depth stated in every result; the classes of
+Table~\ref{tab:depth} were first taken for obstructions at level $32$. And
+when an exact computation outgrows the hardware, the engine's skill memory,
+rebuilt from its log, ranks a reduction, a larger budget and a new order of
+the work as the changes that have helped before; this paper uses the third,
+running the primes in order of measured cost per unit of log-sum, which
+leaves the gates at $17$ and $19$ for later.}
 
 \section*{Data and code availability}
 
@@ -772,7 +777,7 @@ time from the definitions; the exact checks of the shape bound, of the
 constants of Table~\ref{tab:cr} and of the shift lemma; and the measured
 costs. The archive is~\cite{Archive}, \archivelink, where later versions are
 listed. The search followed the learn-from-failure protocol of the BLLM
-engine Anaxia, release~3.0.5~\cite{Ana26}, described in~\cite{BB26c}. Deep
+engine Anaxia, release~3.1.0~\cite{Ana26}, described in~\cite{BB26c}. Deep
 Bhattacharjee carried out the computations and the C++, Python and shell
 checks with AI assistance from Claude (Anthropic); both authors approved the
 final text.
@@ -930,8 +935,8 @@ D.~Bhattacharjee and U.~Bhattacharya, BLLM: Beyond the LLM with Deep
 Human-Mind-AI, preprint (2026), distributed with~\cite{Ana26}.
 
 \bibitem{Ana26}
-D.~Bhattacharjee, Anaxia, the BLLM engine, eBLLM release 3.0.5, Zenodo
-(2026), \href{https://doi.org/10.5281/zenodo.23469389}{doi:10.5281/zenodo.23469389};
+D.~Bhattacharjee, Anaxia, the BLLM engine, eBLLM release 3.1.0, Zenodo
+(2026), \href{https://doi.org/10.5281/zenodo.23484160}{doi:10.5281/zenodo.23484160};
 all versions
 \href{https://doi.org/10.5281/zenodo.23286641}{doi:10.5281/zenodo.23286641}.
 

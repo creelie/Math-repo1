@@ -38,8 +38,8 @@ references:
         given-names: Jaan
     doi: "10.5281/zenodo.22667683"
   - type: software
-    title: "Anaxia, the BLLM engine (eBLLM release 3.0.5)"
+    title: "Anaxia, the BLLM engine (eBLLM release 3.1.0)"
     authors:
       - family-names: Bhattacharjee
         given-names: Deep
-    doi: "10.5281/zenodo.23469389"
+    doi: "10.5281/zenodo.23484160"
