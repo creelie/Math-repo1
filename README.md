@@ -32,6 +32,7 @@ these primes.
 | 269 | decomposition | 128 | 6,596,721 rows | not used | `results/summary_269.json` |
 | 271 | decomposition | 128 | 4,179,959 rows | not used | `results/summary_271.json` |
 | 281 | decomposition | 128 | 3,825,618 rows | not used | `results/summary_281.json` |
+| 283 | decomposition | 128 | 2,821,058 rows | not used | `results/summary_283.json` |
 
 This does not prove LRC(15). Allikvere's flag bound, at n = 15, gives
 log(v_1 ... v_15) < 497.03 for a primitive counterexample, so the method
