@@ -58,7 +58,7 @@ computer-assisted proof}
 
 \begin{abstract}
 \itshape
-We prove that the speeds of any counterexample to the lonely runner conjecture for sixteen runners with no common factor have a product below an explicit bound and divisible by 720720 and by each of the primes 23, 29, 31, 179, 239 and 269. The conjecture for sixteen runners therefore follows from a finite list of prime checks of the same kind. Two tools carry the method of the fifteen-runner case one step further: a shift lemma for powers of two, and binary lifting to greater depth.
+We prove that the speeds of any counterexample to the lonely runner conjecture for sixteen runners with no common factor have a product below an explicit bound and divisible by 720720 and by each of the primes 23, 29, 31, 179, 239, 269 and 271. The conjecture for sixteen runners therefore follows from a finite list of prime checks of the same kind. Two tools carry the method of the fifteen-runner case one step further: a shift lemma for powers of two, and binary lifting to greater depth.
 \end{abstract}
 
 \maketitle
@@ -144,13 +144,13 @@ primitive counterexample $v$ with pairwise distinct coordinates.
 Let $v\in\Z_{>0}^{15}$ be a primitive counterexample to $\LRC(15)$. Then every
 prime in
 \[
- \mathcal P_0=\{23,29,31,179,239,269\}
+ \mathcal P_0=\{23,29,31,179,239,269,271\}
 \]
 divides $v_1\cdots v_{15}$. Hence
-$720720\cdot23\cdot29\cdot31\cdot179\cdot239\cdot269$ divides $v_1\cdots v_{15}$.
+$720720\cdot23\cdot29\cdot31\cdot179\cdot239\cdot269\cdot271$ divides $v_1\cdots v_{15}$.
 \end{theorem}
 
-The primes of $\mathcal P_0$ contribute $26.1953$ to the sum of
+The primes of $\mathcal P_0$ contribute $31.7975$ to the sum of
 Theorem~\ref{thm:bound}, so they do not settle the conjecture; the gates of
 the remaining primes are the same finite computation, and
 Section~\ref{sec:remains} records what it costs. The proof of
@@ -695,6 +695,7 @@ $31$ & small prime & $1$ & $16$ & $0$ & $<0.1$\\
 $179$ & general & $438{,}266{,}496$ & $16$ & $403{,}094{,}340$ & $9.9$\\
 $239$ & decomposition & $10{,}536{,}820$ & $16$ & $0$ & $2.0$\\
 $269$ & decomposition & $6{,}596{,}721$ & $16$ & $0$ & $5.1$\\
+$271$ & decomposition & $4{,}179{,}959$ & $16$ & $0$ & $4.1$\\
 \bottomrule
 \end{tabular}
 \end{wtable}
@@ -713,13 +714,13 @@ Theorem~\ref{thm:bound} the coordinates of every primitive counterexample are
 distinct.
 \end{proof}
 
-The shift lemma is used in the proof: at $p=23$ it settles $8{,}636{,}800$ lifts; at $p=179$ it settles $403{,}094{,}340$ lifts, while at $29$, $31$, $239$ and $269$ no lift needs it. Without it these gates would leave improper lifts that no witness on the binary grid settles.
+The shift lemma is used in the proof: at $p=23$ it settles $8{,}636{,}800$ lifts; at $p=179$ it settles $403{,}094{,}340$ lifts, while at $29$, $31$, $239$, $269$ and $271$ no lift needs it. Without it these gates would leave improper lifts that no witness on the binary grid settles.
 
 \section{What remains}\label{sec:remains}
 
 By Theorem~\ref{thm:bound} the conjecture for sixteen runners follows from
 prime gates whose logarithms add up to more than $483.5419$; the primes of
-$\mathcal P_0$ give $26.1953$. One sufficient set is every prime from
+$\mathcal P_0$ give $31.7975$. One sufficient set is every prime from
 $17$ to $523$, ninety-three primes; others trade small primes for large ones
 (Fig.~\ref{fig:budget}). The work per prime is dominated by the covering
 search. At $p=239$, where no cover uses at most thirteen classes, it took
