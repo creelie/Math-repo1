@@ -12,6 +12,7 @@ times are those of the binary lift cascade.
 | 179 | general | 83,239 | 4,448 s | 765 s (2,676,385 covers) | 5,441 s irredundant, 24,952 s reducible (summed job time on a shared machine) | about 10 hours of summed job time |
 | 269 | decomposition | 0 | 17,222 s | 877 s | 166 s | about 5.1 hours of summed job time (two workers on a shared machine) |
 | 271 | decomposition | 0 | 14,093 s | 565 s | 97 s | about 4.1 hours of summed job time (two workers on a shared machine) |
+| 281 | decomposition | 0 | 25,828 s | 1,112 s | 90 s | about 7.5 hours of summed job time (two workers on a shared machine) |
 
 The classification run (`km1low 13`) counts the covers on at most 13
 classes. It found none for p = 269, 271, 281, 283, 293, 307, 311, 313, 317
